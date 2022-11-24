@@ -3,7 +3,7 @@ import { AppBar, Typography, Toolbar, Avatar, Button } from "@material-ui/core";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import decode from "jwt-decode";
-
+import "./Navbar.css";
 import memoriesLogo from "../../images/memoriesLogo.png";
 
 // import memoriesText from '../../images/memoriesText.png';
@@ -45,8 +45,12 @@ const Navbar = () => {
       <Button component={Link} to="/add" variant="contained" color="primary">
         Add New song
       </Button>
-      <Link to="/" className={classes.brandContainer}>
-       <h1>Home</h1>
+      <Link
+        to="/"
+        style={{ paddingLeft: 13, textDecoration: "none" }}
+        className={classes.brandContainer}
+      >
+        <h1 className="home">Home</h1>
         <img
           component={Link}
           to="/"

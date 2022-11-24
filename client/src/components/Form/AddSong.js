@@ -102,6 +102,18 @@ const AddSong = ({ currentId, setCurrentId }) => {
           }
         />
         <div style={{ padding: "5px 0", width: "94%" }}>
+          <div className="rating">
+            <label htmlFor="rating">
+              <h1>Give Rating:</h1>
+            </label>
+            <select id="star">
+              <option value={postData.tags}>1</option>
+              <option value={postData.tags}>2</option>
+              <option value={postData.tags}>3</option>
+              <option value={postData.tags}>4</option>
+              <option value={postData.tags}>5</option>
+            </select>
+          </div>
           <ChipInput
             name="tags"
             variant="outlined"

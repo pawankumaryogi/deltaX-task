@@ -1,25 +1,14 @@
 import React from "react";
 import "./Post.css";
-import {
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Button,
-  Typography,
-  ButtonBase,
-  Divider,
-} from "@material-ui/core/";
+import { Button } from "@material-ui/core/";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import DeleteIcon from "@material-ui/icons/Delete";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import ThumbUpAltOutlined from "@material-ui/icons/ThumbUpAltOutlined";
-import InfoIcon from "@material-ui/icons/Info";
 import { useDispatch } from "react-redux";
-import moment from "moment";
 import { useHistory } from "react-router-dom";
 
-import { getPost, likePost, deletePost } from "../../../actions/posts";
+import { deletePost } from "../../../actions/posts";
 import useStyles from "./styles";
 
 const Post = ({ post, setCurrentId }) => {
@@ -67,45 +56,53 @@ const Post = ({ post, setCurrentId }) => {
       <div className="listbox">
         <h1>{post.title}</h1>
         <div className="cat-list">
-          <div className="pster">
-            <img
-              title={post.title}
-              src={post.selectedFile}
-              alt="Dil Jisse Zinda Hain - Jubin Nautiyal"
-              style={{ width: "80px", height: "80px" }}
-              className=" b-error"
-            />
-          </div>
-          <div className="listbox-tags">{post.message}</div>
-        </div>
-        <a href="/dil-jisse-zinda-hain-jubin-nautiyal-mp3-song/download.html"></a>
-        <div className="buttonn">
-          {/* <div  name="edit"> */}
-          <Button
-            onClick={(e) => {
-              e.stopPropagation();
-              setCurrentId(post._id);
-            }}
-            style={{ color: "red" }}
-            size="small"
-          >
-            <MoreHorizIcon fontSize="default" />
-          </Button>
+          <div className="imagebox">
+            <div>
+              <img
+                title={post.title}
+                src={post.selectedFile}
+                alt="Dil Jisse Zinda Hain - Jubin Nautiyal"
+                style={{ width: "80px", height: "80px" }}
+                className=" b-error"
+              />
+            </div>
+            <div className="buttonn">
+              {/* <div  name="edit"> */}
+              <Button
+                className="edit"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setCurrentId(post._id);
+                }}
+                style={{ color: "red" }}
+                size="small"
+              >
+                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                <MoreHorizIcon />
+                &nbsp;
+                <p>Edit</p>
+              </Button>
 
-          {/* </div> */}
-          {/* <div className="delete"> */}
-          {(user?.result?.googleId === post?.creator ||
-            user?.result?._id === post?.creator) && (
-            <Button
-              size="small"
-              style={{ color: "red" }}
-              onClick={() => dispatch(deletePost(post._id))}
-            >
-              <DeleteIcon fontSize="small" /> &nbsp; Delete
-            </Button>
-          )}
-          <h1>{post.tags}</h1>
-          {/* </div> */}
+              {/* </div> */}
+              {/* <div className="delete"> */}
+              {(user?.result?.googleId === post?.creator ||
+                user?.result?._id === post?.creator) && (
+                <Button
+                  size="small"
+                  style={{ color: "red" }}
+                  onClick={() => dispatch(deletePost(post._id))}
+                >
+                  <DeleteIcon fontSize="small" /> &nbsp; <p>Delete</p>
+                </Button>
+              )}
+
+              {/* </div> */}
+            </div>
+          </div>
+          <div className="listbox-tags">
+            <p>{post.message}</p>
+            <h1>{post.tags} &#9734;</h1>
+          </div>
         </div>
       </div>
     </>

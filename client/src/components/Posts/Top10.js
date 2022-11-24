@@ -53,7 +53,8 @@ const Top10 = ({ post, setCurrentId }) => {
   return (
     <>
       <div className="listbox">
-        <h2 style={{ fontWeight: 400 }}>{post.title}</h2>
+        <p>{post.title}</p>
+
         <div className="cat-list">
           <div className="pster">
             <img
@@ -64,6 +65,7 @@ const Top10 = ({ post, setCurrentId }) => {
               style={{ width: "80px", height: "80px" }}
               className=" b-error"
             />
+            <h1>{post.tags}&#9734;</h1>
           </div>
           <div className="listbox-tags">{post.message}</div>
         </div>

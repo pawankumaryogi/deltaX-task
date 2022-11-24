@@ -24,5 +24,36 @@
     display: flex;
 }
 .buttonn button{
-    diplay:flex;
+    display:flex;
+    flex-direction: row;
+}
+.listbox-tags{
+    max-width: 470px;
+
+}
+.listbox-tags p{
+    font-size: large;
+    font-weight: 700;
+
+}
+.listbox-tags h1{
+    color:rgb(15, 0, 97);
+}
+.imageBox{
+    display: flex;
+    flex-direction: column;
+}
+.buttonn p{
+    font-size: 1px;
+    font-weight: 400;
+    color: rgb(0, 0, 0);
+}
+.buttonn button{
+    box-shadow: rgb(212, 212, 212) 2px 2px 2px 2px;
+    background-color: rgb(255, 255, 255);
+    
+}
+.listbox h1{
+    font-size:medium;
+    font-weight: 700;
 }
