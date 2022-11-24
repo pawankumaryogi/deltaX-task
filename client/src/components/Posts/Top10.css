@@ -29,3 +29,8 @@
 .buttonn button{
     diplay:flex;
 }
+.pster img {
+    border-radius: 185px;
+    width: 172px;
+    height: 169px;
+}

@@ -7,8 +7,9 @@ import PostDetails from "./components/PostDetails/PostDetails";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import Auth from "./components/Auth/Auth";
-import Top10 from "./components/Posts/Top10";
 import Form from "./components/Form/Form";
+import AddSong from "./components/Form/AddSong";
+import TopSongs from "./components/Posts/TopSongs";
 import Post from "./components/Posts/Post/Post";
 import Posts from "./components/Posts/Posts";
 const App = () => {
@@ -41,12 +42,12 @@ const App = () => {
           />
 
           <Route exact path="/top10">
-            <Posts setCurrentId={setCurrentId} />
+            <TopSongs setCurrentId={setCurrentId} />
           </Route>
 
           {/* <Top10 post={post} setCurrentId={setCurrentId} /> */}
           <Route exact path="/add">
-            <Form currentId={currentId} setCurrentId={setCurrentId} />
+            <AddSong currentId={currentId} setCurrentId={setCurrentId} />
           </Route>
         </Switch>
       </Container>

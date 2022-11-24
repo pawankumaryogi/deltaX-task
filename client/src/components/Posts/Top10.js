@@ -1,30 +1,18 @@
 import React from "react";
-import './Top10.css';
-import {
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Button,
-  Typography,
-  ButtonBase,
-  Divider,
-} from "@material-ui/core/";
+import "./Top10.css";
+// import { Button } from "@material-ui/core/";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
-import DeleteIcon from "@material-ui/icons/Delete";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+// import DeleteIcon from "@material-ui/icons/Delete";
+// import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import ThumbUpAltOutlined from "@material-ui/icons/ThumbUpAltOutlined";
-import InfoIcon from "@material-ui/icons/Info";
 import { useDispatch } from "react-redux";
-import moment from "moment";
 import { useHistory } from "react-router-dom";
 
-import { getPost, likePost, deletePost } from "../../actions/posts";
-import useStyles from "./styles";
+// import useStyles from "./styles";
 
 const Top10 = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
-  const classes = useStyles();
+  // const classes = useStyles();
   const user = JSON.parse(localStorage.getItem("profile"));
   const history = useHistory();
 
@@ -63,49 +51,24 @@ const Top10 = ({ post, setCurrentId }) => {
   };
 
   return (
-      <>
-         <div className="listbox">
-         
-            <h2 style={{fontWeight: 400}}>{post.title}</h2>   
+    <>
+      <div className="listbox">
+        <h2 style={{ fontWeight: 400 }}>{post.title}</h2>
         <div className="cat-list">
-          <div className="pster"> 
-            <img title= {post.title} src={post.selectedFile}alt="Dil Jisse Zinda Hain - Jubin Nautiyal" style={{width: '80px', height: '80px'}} className=" b-error" />
+          <div className="pster">
+            <img
+              height="170px"
+              title={post.title}
+              src={post.selectedFile}
+              alt={post.title}
+              style={{ width: "80px", height: "80px" }}
+              className=" b-error"
+            />
           </div>
           <div className="listbox-tags">{post.message}</div>
-
-        </div>
-          <a href="/dil-jisse-zinda-hain-jubin-nautiyal-mp3-song/download.html">
-          </a>
-          <div className="buttonn">
-
-          {/* <div  name="edit"> */}
-             <Button
-              onClick={(e) => {
-                e.stopPropagation();
-                setCurrentId(post._id);
-              }}
-              style={{ color: "red" }}
-              size="small"
-              >
-              <MoreHorizIcon fontSize="default" />
-            </Button>
-           
-          {/* </div> */}
-        {/* <div className="delete"> */}
-        {(user?.result?.googleId === post?.creator ||
-          user?.result?._id === post?.creator) && (
-            <Button
-            size="small"
-            color="secondary"
-            onClick={() => dispatch(deletePost(post._id))}
-            >
-            <DeleteIcon fontSize="small" /> &nbsp; Delete
-          </Button>
-        )}
-        {/* </div> */}
         </div>
       </div>
-      </>
+    </>
     // <Card className={classes.card} raised elevation={6}>
     //   <ButtonBase
     //     component="span"

@@ -8,7 +8,7 @@ import ChipInput from "material-ui-chip-input";
 import { createPost, updatePost } from "../../actions/posts";
 import useStyles from "./styles";
 
-const Form = ({ currentId, setCurrentId }) => {
+const AddSong = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({
     title: "",
     message: "",
@@ -79,7 +79,7 @@ const Form = ({ currentId, setCurrentId }) => {
         onSubmit={handleSubmit}
       >
         <Typography variant="h6">
-          {currentId ? `Editing "${post?.title}"` : "editing  a song"}
+          {currentId ? `adding "${post?.title}"` : "addin  a new song"}
         </Typography>
         <TextField
           name="title"
@@ -101,19 +101,17 @@ const Form = ({ currentId, setCurrentId }) => {
             setPostData({ ...postData, message: e.target.value })
           }
         />
-
-        <TextField
-          name="message"
-          variant="outlined"
-          label="tags"
-          fullWidth
-          multiline
-          rows={4}
-          value={postData.tags}
-          onChange={(e) =>
-            setPostData({ ...postData, message: e.target.value })
-          }
-        />
+        <div style={{ padding: "5px 0", width: "94%" }}>
+          <ChipInput
+            name="tags"
+            variant="outlined"
+            label="Tags"
+            fullWidth
+            value={postData.tags}
+            onAdd={(chip) => handleAddChip(chip)}
+            onDelete={(chip) => handleDeleteChip(chip)}
+          />
+        </div>
         <div className={classes.fileInput}>
           <FileBase
             type="file"
@@ -147,4 +145,4 @@ const Form = ({ currentId, setCurrentId }) => {
   );
 };
 
-export default Form;
+export default AddSong;

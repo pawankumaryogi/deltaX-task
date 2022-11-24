@@ -1,5 +1,5 @@
 import React from "react";
-import './Post.css';
+import "./Post.css";
 import {
   Card,
   CardActions,
@@ -63,49 +63,52 @@ const Post = ({ post, setCurrentId }) => {
   };
 
   return (
-      <>
-         <div className="listbox">
-         
-            <h2 style={{fontWeight: 400}}>{post.title}</h2>   
+    <>
+      <div className="listbox">
+        <h1>{post.title}</h1>
         <div className="cat-list">
-          <div className="pster"> 
-            <img title= {post.title} src={post.selectedFile}alt="Dil Jisse Zinda Hain - Jubin Nautiyal" style={{width: '80px', height: '80px'}} className=" b-error" />
+          <div className="pster">
+            <img
+              title={post.title}
+              src={post.selectedFile}
+              alt="Dil Jisse Zinda Hain - Jubin Nautiyal"
+              style={{ width: "80px", height: "80px" }}
+              className=" b-error"
+            />
           </div>
           <div className="listbox-tags">{post.message}</div>
-
         </div>
-          <a href="/dil-jisse-zinda-hain-jubin-nautiyal-mp3-song/download.html">
-          </a>
-          <div className="buttonn">
-
+        <a href="/dil-jisse-zinda-hain-jubin-nautiyal-mp3-song/download.html"></a>
+        <div className="buttonn">
           {/* <div  name="edit"> */}
-             <Button
-              onClick={(e) => {
-                e.stopPropagation();
-                setCurrentId(post._id);
-              }}
-              style={{ color: "red" }}
-              size="small"
-              >
-              <MoreHorizIcon fontSize="default" />
-            </Button>
-           
-          {/* </div> */}
-        {/* <div className="delete"> */}
-        {(user?.result?.googleId === post?.creator ||
-          user?.result?._id === post?.creator) && (
-            <Button
-            size="small"
+          <Button
+            onClick={(e) => {
+              e.stopPropagation();
+              setCurrentId(post._id);
+            }}
             style={{ color: "red" }}
-            onClick={() => dispatch(deletePost(post._id))}
-            >
-            <DeleteIcon fontSize="small" /> &nbsp; Delete
+            size="small"
+          >
+            <MoreHorizIcon fontSize="default" />
           </Button>
-        )}
-        {/* </div> */}
+
+          {/* </div> */}
+          {/* <div className="delete"> */}
+          {(user?.result?.googleId === post?.creator ||
+            user?.result?._id === post?.creator) && (
+            <Button
+              size="small"
+              style={{ color: "red" }}
+              onClick={() => dispatch(deletePost(post._id))}
+            >
+              <DeleteIcon fontSize="small" /> &nbsp; Delete
+            </Button>
+          )}
+          <h1>{post.tags}</h1>
+          {/* </div> */}
         </div>
       </div>
-      </>
+    </>
     // <Card className={classes.card} raised elevation={6}>
     //   <ButtonBase
     //     component="span"
