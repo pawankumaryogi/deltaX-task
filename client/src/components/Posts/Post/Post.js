@@ -96,7 +96,7 @@ const Post = ({ post, setCurrentId }) => {
           user?.result?._id === post?.creator) && (
             <Button
             size="small"
-            color="secondary"
+            style={{ color: "red" }}
             onClick={() => dispatch(deletePost(post._id))}
             >
             <DeleteIcon fontSize="small" /> &nbsp; Delete

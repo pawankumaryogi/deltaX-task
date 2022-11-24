@@ -1,7 +1,9 @@
 .listbox {
+    border-radius:30px;
     float: left;
     clear: both;
-    background: #f2f2f2;
+    background-color: #f7f8fc;
+
     margin: 3px 0;
     width: 100%;
     box-sizing: border-box;

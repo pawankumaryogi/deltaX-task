@@ -42,6 +42,9 @@ const Navbar = () => {
       <Button component={Link} to="/top10" variant="contained" color="primary">
         Top10
       </Button>
+      <Button component={Link} to="/add" variant="contained" color="primary">
+        Add New song
+      </Button>
       <Link to="/" className={classes.brandContainer}>
        <h1>Home</h1>
         <img
